@@ -190,6 +190,9 @@ label ashka:
             scene boln
             "Только в больнице выяснилось, что наш герой скончался."
     return
+
+#ГЛАВА: ДОМ
+
 label dom:
     scene home
     show sir_normal
