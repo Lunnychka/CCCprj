@@ -1,15 +1,16 @@
 ﻿define e = Character('Сергиц', color="#15c3e6")
 define r = Character('Работодательница', color="#FF8484")
-define adm = Character('admin', color="#FF0000")
+define adm = Character('ADMIN', color="#FF0000")
 define zav = Character('Заведующий', color="#F17171")
 define rdm = Character('Незнакомец', color="#949292")
 define vd = Character('Ведущий', color="#6A3232")
 define vdall = Character('Ведущие', color="#6A3232")
+define bft = Character('Буфетчица', color="#226415")
 
 #ГЛАВА: КАДРОВЫЙ ОТДЕЛ
 
 label start:
-    jump dom
+    jump stolovka
     return
 
 
@@ -208,5 +209,33 @@ label dom:
     e "Что?!.."
     e "О нет! Мне же не хватит денег чтобы купить Леона за гемы"
     show sir_sad
+    adm "end"
+    return
+
+#ГЛАВА: ШКОЛА, СТОЛОВАЯ
+
+
+label stolovka:
+    scene byfet
+    
+    show byfetc:
+        xalign 0.3 yalign -2.1
+
+    show sir_normal:
+        xalign 0.8
+
+
+
+    e "Здравствуйте, можно мне сок и 2 сосиски в тесте и йогурт?"
+    bft "С вас 1250 рублей"
+    e "Но почему так много?"
+    bft "Ты вчера из пещеры вылез?{w=2} Инфляция в стране, всё дорожает.{w=2}\n Ты давай или плати или уходи, очередь не задерживай!"
+    "*Сиргиц уходит грустный..*"
+    jump end
+    with fade
+    return
+
+label end:
+    scene blackfon
     adm "end"
     return
